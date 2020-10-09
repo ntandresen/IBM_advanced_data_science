@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Deployment Tutorial 1</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous">
+  </script>
+
+  <script>
+    $(document).ready(function() {
+      $('#brand').change(function() {
+        var brand = $('#brand').val()
+
+        $.getJSON(
+          '/get_model' + '/' + brand,
+          function(data) {
+            // Remove old options
+            $('#model').find('option').remove();
+
+            // Add new items
+            $.each(data, function(key, val) {
+              var option_item = '<option value="' + val + '">' + val + '</option>'
+              $('#model').append(option_item);
+            });
+          }
+        );
+      });
+    });
+  </script>
+  
+</head>
+
+<body style="background: #000;">
+  <div>
+    Microblog:
+    <a href="/index">Home</a>
+    <a href="/login">Login</a>
+  </div>
+  hej {{ user.username }}
+</body>
+</html>

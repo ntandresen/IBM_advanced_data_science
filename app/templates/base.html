@@ -1,0 +1,198 @@
+<html>
+    <head>
+        <title>Super Duper Car Price Predictor</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    </head>
+    <body>
+		<div class="container-fluid">
+			<form action="http://127.0.0.1:5000/predict" method="GET">
+				<div class="form-group">
+					<label for="manufacturer">Brand:</label>
+					<input class="form-control" type="text" name="manufacturer" id="manufacturer"><br><br>
+				</div>
+				<label for="model">Model:</label>
+				<input class="form-control" type="text" name="model" id="model"><br><br>
+				
+				<label for="year">Year:</label>
+				<!--<select id="year"></select><br><br>-->
+				<input class="form-control" type="text" name="year" id="year"><br><br>
+				
+				<label for="transmission">Transmission:</label>
+				<select class="form-control" name="transmission" id="transmission">
+					<option value="automatic">Automatic</option>
+					<option value="manual">Manual</option>
+				</select><br><br>
+				
+				<label for="fuel">Fuel:</label>
+				<select class="form-control" name="fuel" id="fuel">
+					<option value="gas">Gas</option>
+					<option value="diesel">Diesel</option>
+					<option value="hybrid">Hybrid</option>
+					<option value="electric">Electric</option>
+					<option value="other">Other</option>
+				</select><br><br>
+				
+				<label for="odometer">Mileage:</label>
+				<input class="form-control" type="text" name="odometer" id="odometer"><br><br>
+
+				<label for="displacementl">Displacement (L):</label>
+				<input class="form-control" type="text" name="displacementl" id="displacementl"><br><br>
+
+				<label for="enginehp">Horsepower:</label>
+				<input class="form-control" type="text" name="enginehp" id="enginehp"><br><br>
+
+				<label for="enginecylinders">Cylinders:</label>
+				<input class="form-control" type="text" name="enginecylinders" id="enginecylinders"><br><br>
+
+				<label for="engineconfiguration">Engine Configuration:</label>
+				<select class="form-control" name="engineconfiguration" id="engineconfiguration">
+					<option value="v-shaped">V-shaped</option>
+					<option value="in-line">Inline</option>
+					<option value="horizontally opposed (boxer)">Horizontally Opposed (Boxer)</option>
+					<option value="None">Not Applicable</option>
+				</select><br><br>
+				
+				<label for="drive">Drive:</label>
+				<select class="form-control" name="drive" id="drive">
+					<option value="fwd">Front Wheel Drive</option>
+					<option value="4wd">Four Wheel Drive</option>
+					<option value="rwd">Rear Wheel Drive</option>
+				</select><br><br>
+
+				<label for="doors">Doors:</label>
+				<input class="form-control" type="text" name="doors" id="doors"><br><br>
+
+				<label for="type">Type:</label>
+				<select class="form-control" name="type" id="type">
+					<option value="SUV">SUV</option>
+					<option value="sedan">Sedan</option>
+					<option value="hatchback">Hatchback</option>
+					<option value="coupe">Coupe</option>
+					<option value="offroad">Offroad</option>
+					<option value="wagon">wagonWagon</option>
+					<option value="convertible">Convertible</option>
+					<option value="van">Van</option>
+					<option value="mini-van">Mini-Van</option>
+					<option value="pickup">Pickup</option>
+					<option value="truck">Truck</option>
+					<option value="bus">Bus</option>
+					<option value="other">Other</option>
+				</select><br><br>
+
+				<label for="condition">Condition:</label>
+				<select class="form-control" name="condition" id="condition">
+					<option value="new">New</option>
+					<option value="like new">Like New</option>
+					<option value="excellent">Excellent</option>
+					<option value="good">Good</option>
+					<option value="fair">Fair</option>
+					<option value="unknown">Unknown</option>
+				</select><br><br>
+
+				<label for="tpms">Tire-Pressure Monitoring System:</label>
+				<select class="form-control" name="tpms" id="tpms">
+					<option value="direct">Direct</option>
+					<option value="indirect">Indirect</option>
+				</select><br><br>
+
+				<label for="gvwr">Gross Vehicle Weight Rating:</label>
+				<select class="form-control" name="gvwr" id="gvwr">
+					<option value="class 1">Class 1</option>
+					<option value="class 1a">Class 1A</option>
+					<option value="class 1b">Class 1B</option>
+					<option value="class 1c">Class 1C</option>
+					<option value="class 1d">Class 1D</option>
+					<option value="class 2">Class 2</option>
+					<option value="class 2e">Class 2E</option>
+					<option value="class 2f">Class 2F</option>
+					<option value="class 2g">Class 2G</option>
+					<option value="class 2h">Class 2H</option>
+					<option value="class 3">Class 3</option>
+					<option value="class 4">Class 4</option>
+					<option value="class 5">Class 5</option>
+					<option value="class 6">Class 6</option>
+					<option value="class 7">Class 7</option>
+					<option value="class 8">Class 8</option>
+				</select><br><br>
+
+				<label for="title_status">Title Status:</label>
+				<select class="form-control" name="title_status" id="title_status">
+					<option value="clean">Clean</option>
+					<option value="rebuilt">Rebuilt</option>
+					<option value="lien">Lien</option>
+					<option value="missing">Missing</option>
+					<option value="parts only">Parts Only</option>
+				</select><br><br>
+				<label for="state">State:</label>
+				<select class="form-control" name="state" id="state">
+					<option value="ak">AK</option>
+					<option value="al">AL</option>
+					<option value="ar">AR</option>
+					<option value="az">AZ</option>
+					<option value="ca">CA</option>
+					<option value="co">CO</option>
+					<option value="ct">CT</option>
+					<option value="dc">DC</option>
+					<option value="de">DE</option>
+					<option value="fl">FL</option>
+					<option value="ga">GA</option>
+					<option value="hi">HI</option>
+					<option value="ia">IA</option>
+					<option value="id">ID</option>
+					<option value="il">IL</option>
+					<option value="in">IN</option>
+					<option value="ks">KS</option>
+					<option value="ky">KY</option>
+					<option value="la">LA</option>
+					<option value="ma">MA</option>
+					<option value="md">MD</option>
+					<option value="me">ME</option>
+					<option value="mi">MI</option>
+					<option value="mn">MN</option>
+					<option value="mo">MO</option>
+					<option value="ms">MS</option>
+					<option value="mt">MT</option>
+					<option value="nc">NC</option>
+					<option value="nd">ND</option>
+					<option value="ne">NE</option>
+					<option value="nh">NH</option>
+					<option value="nj">NJ</option>
+					<option value="nm">NM</option>
+					<option value="nv">NV</option>
+					<option value="ny">NY</option>
+					<option value="oh">OH</option>
+					<option value="ok">OK</option>
+					<option value="or">OR</option>
+					<option value="pa">PA</option>
+					<option value="ri">RI</option>
+					<option value="sc">SC</option>
+					<option value="sd">SD</option>
+					<option value="tn">TN</option>
+					<option value="tx">TX</option>
+					<option value="ut">UT</option>
+					<option value="va">VA</option>
+					<option value="vt">VT</option>
+					<option value="wa">WA</option>
+					<option value="wi">WI</option>
+					<option value="wv">WV</option>
+					<option value="wy">WY</option>
+				</select><br><br>
+				
+				<input class="btn btn-primary" type="submit" value="Submit">
+			</form>
+		</div>
+    </body>
+    
+    <script>
+        for(var i=2021; i>=1920; i--){
+            var select = document.getElementById("year");
+            var option = document.createElement("OPTION");
+            select.options.add(option);
+            option.text = i;
+            option.value = i;
+        }
+    </script>
+</html>
+
+
